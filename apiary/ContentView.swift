@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    let buzzcardReader = MiFareReader()
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
@@ -25,14 +26,15 @@ struct ContentView: View {
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
+                ToolbarItem {
+                    Button(action: buzzcardReader.scanCoupon) {
+                        Label("Scan Buzzcard", systemImage: "plus")
+                    }
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
+                
             }
         } detail: {
             Text("Select an item")

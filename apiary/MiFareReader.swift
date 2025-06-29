@@ -6,6 +6,36 @@
 //
 
 
+// 1. Hello world compilation/toolchain to phone
+    // Can I get my own code running on my phone
+    // prereq: apple developer account (@kristaps)
+
+// sync sometime after last final (dec 12 ish?)
+
+// 2. Custom function from a button
+    // Can I click a button and get a change (super simple, just finding the hook)
+
+// sync sometime first week of classes?
+
+// 3. How to have class of NFCTagReaderSessionDelegate in codebase
+    // CoreNFC piece: https://developer.apple.com/documentation/corenfc
+
+// sync before spring break
+
+// *4. Plug in below code (read buzzcard)
+    //
+
+// sync sometime in spring semester?
+
+// unordered
+    // Make it look like RoboJackets (robobuzz, colors, etc)
+    // Log in with GT login*
+        // Make call to Apiary to get events
+    // Research (ask in slack) how does android app send attendance info
+        // Apply same logic to ios app
+
+
+
 import UIKit
 import CoreNFC
 
@@ -16,7 +46,7 @@ class MiFareReader: UITableViewController, NFCTagReaderSessionDelegate {
     @IBOutlet weak var couponText: UITextField!
     
     // MARK: - Actions
-    @IBAction func scanCoupon(_ sender: Any) {
+    @IBAction func scanCoupon() {
         guard NFCNDEFReaderSession.readingAvailable else {
             let alertController = UIAlertController(
                 title: "Scanning Not Supported",
